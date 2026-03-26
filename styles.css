@@ -1,0 +1,200 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #0f1422;
+  color: #e8edff;
+  line-height: 1.4;
+}
+
+.container {
+  width: min(1000px, 92%);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 56px 0 42px;
+  background: linear-gradient(135deg, #1f2a44, #12203f);
+}
+
+.badge {
+  display: inline-block;
+  margin: 0 0 10px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  background: #21345f;
+  font-size: 13px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 40px;
+}
+
+.subtitle {
+  margin: 14px 0 24px;
+  max-width: 700px;
+  color: #bfc9ec;
+}
+
+.cta {
+  display: inline-block;
+  padding: 10px 16px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #0f1422;
+  background: #7cd4ff;
+  font-weight: 700;
+}
+
+.panel {
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: 14px;
+  background: #171f34;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+input,
+select,
+button {
+  border: 1px solid #3a4a75;
+  border-radius: 8px;
+  padding: 9px 10px;
+  background: #121a2d;
+  color: #e8edff;
+}
+
+.checks {
+  margin: 14px 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.checks label {
+  flex-direction: row;
+  align-items: center;
+}
+
+button {
+  cursor: pointer;
+  font-weight: 700;
+  background: #2d5bff;
+  border-color: #2d5bff;
+}
+
+.cards {
+  display: grid;
+  gap: 12px;
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.btn-secondary {
+  background: #121a2d;
+  border-color: #3a4a75;
+  color: #e8edff;
+  font-weight: 700;
+}
+
+.btn-secondary:hover {
+  background: #0f1422;
+}
+
+.card {
+  background: #11182a;
+  border: 1px solid #2e3d64;
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.status-buy {
+  color: #78f0a3;
+}
+
+.status-sell {
+  color: #ff8a8a;
+}
+
+.status-none {
+  color: #ffd66d;
+}
+
+.muted {
+  color: #9cadde;
+}
+
+.history {
+  margin-top: 16px;
+}
+
+.history h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.history-item {
+  background: #11182a;
+  border: 1px solid #2e3d64;
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.history-meta {
+  min-width: 0;
+}
+
+.history-meta .small {
+  color: #9cadde;
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.history-show {
+  white-space: nowrap;
+}
+
+.foot {
+  padding: 20px 0 32px;
+  color: #95a6d8;
+}

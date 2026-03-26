@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MMVB Signal | Логичный анализ акций</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="hero">
+      <div class="container">
+        <p class="badge">Мини-лендинг проекта</p>
+        <h1>MMVB Signal</h1>
+        <p class="subtitle">
+          Привет! Это рабочая версия сайта для аккуратного анализа акций по вашим
+          правилам: без фантазий, с фильтром риска и понятным итогом.
+        </p>
+        <a class="cta" href="#analyzer">Начать анализ</a>
+      </div>
+    </header>
+
+    <main class="container">
+      <section id="analyzer" class="panel">
+        <h2>Форма анализа</h2>
+        <form id="analyzerForm">
+          <div class="grid">
+            <label>
+              Режим
+              <select id="mode">
+                <option value="one">1-клик анализ</option>
+                <option value="top3">ТОП-3</option>
+                <option value="daily">Ежедневный отчет</option>
+              </select>
+            </label>
+
+            <label>
+              Тикер
+              <select id="ticker"></select>
+            </label>
+
+            <label>
+              Добавить тикер вручную
+              <input id="customTicker" type="text" placeholder="Например: AFLT" />
+            </label>
+
+            <label>
+              Цена
+              <input id="price" type="number" min="1" step="0.01" placeholder="0.00" />
+            </label>
+
+            <label>
+              Тренд
+              <select id="trend">
+                <option value="up">Вверх</option>
+                <option value="down">Вниз</option>
+                <option value="flat">Флэт</option>
+                <option value="unclear">Неясно</option>
+              </select>
+            </label>
+
+            <label>
+              Фаза рынка
+              <select id="phase">
+                <option value="trend">Тренд</option>
+                <option value="correction">Коррекция</option>
+                <option value="impulse_middle">Середина импульса</option>
+                <option value="flat">Флэт</option>
+              </select>
+            </label>
+
+            <label>
+              Структура
+              <select id="structure">
+                <option value="clear">Четкая</option>
+                <option value="unclear">Неясная</option>
+              </select>
+            </label>
+
+            <label>
+              Индикаторы
+              <select id="indicators">
+                <option value="bullish">Поддерживают рост</option>
+                <option value="bearish">Поддерживают падение</option>
+                <option value="neutral">Нейтральные</option>
+                <option value="conflict">Конфликт</option>
+              </select>
+            </label>
+
+            <label>
+              RR (риск/прибыль)
+              <input id="rr" type="number" min="0" step="0.1" value="2.0" />
+            </label>
+          </div>
+
+          <div class="checks">
+            <label><input id="level" type="checkbox" checked /> Есть уровень</label>
+            <label><input id="volume" type="checkbox" checked /> Есть объем</label>
+            <label><input id="candle" type="checkbox" checked /> Есть свечное подтверждение</label>
+          </div>
+
+          <button type="submit">Сформировать результат</button>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Результат</h2>
+        <div class="toolbar">
+          <label class="inline">
+            <input id="strongOnly" type="checkbox" />
+            Только сильные сигналы
+          </label>
+          <button id="exportBtn" type="button" class="btn-secondary">
+            Экспорт отчета (.html)
+          </button>
+          <button id="clearHistoryBtn" type="button" class="btn-secondary">
+            Очистить историю
+          </button>
+        </div>
+
+        <div id="result" class="cards">
+          <p class="muted">Здесь появится карточка анализа.</p>
+        </div>
+
+        <div class="history">
+          <h3>История</h3>
+          <div id="historyList" class="history-list"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="container foot">
+      <p>Правило проекта: сомнение = НЕТ СИГНАЛА.</p>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
