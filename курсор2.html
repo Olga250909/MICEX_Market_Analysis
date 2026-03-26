@@ -5,6 +5,77 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MMVB Signal | Логичный анализ акций</title>
     <link rel="stylesheet" href="./styles.css" />
+    <style>
+      /* Переключатель темы работает через класс на body: body.theme-light */
+      body.theme-light {
+        background: #f5f7ff;
+        color: #0f1422;
+      }
+      body.theme-light .hero {
+        background: linear-gradient(135deg, #e9f2ff, #dbe7ff);
+      }
+      body.theme-light .badge {
+        background: #dbe7ff;
+        color: #0f1422;
+      }
+      body.theme-light .subtitle,
+      body.theme-light .muted {
+        color: #4a5c8a;
+      }
+      body.theme-light .cta {
+        background: #1161ff;
+        color: #ffffff;
+      }
+      body.theme-light .panel {
+        background: #ffffff;
+        border: 1px solid #d8e0ff;
+      }
+      body.theme-light input,
+      body.theme-light select,
+      body.theme-light button {
+        background: #ffffff;
+        color: #0f1422;
+        border-color: #cdd8ff;
+      }
+      body.theme-light button {
+        background: #e9f3ff;
+        border-color: #7aa7ff;
+        color: #0f1422;
+      }
+      body.theme-light .btn-secondary {
+        background: #e9f3ff;
+        border-color: #7aa7ff;
+        color: #0f1422;
+      }
+      body.theme-light .btn-secondary:hover {
+        background: #dbeaff;
+      }
+      body.theme-light .card {
+        background: #ffffff;
+        border-color: #d8e0ff;
+      }
+      body.theme-light .status-none {
+        color: #8a5a00;
+      }
+      body.theme-light .history-item {
+        background: #ffffff;
+        border-color: #d8e0ff;
+      }
+
+      .theme-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .theme-toggle .theme-text {
+        font-size: 14px;
+        color: #bfc9ec;
+      }
+      body.theme-light .theme-toggle .theme-text {
+        color: #4a5c8a;
+      }
+    </style>
   </head>
   <body>
     <header class="hero">
@@ -15,6 +86,11 @@
           Привет! Это рабочая версия сайта для аккуратного анализа акций по вашим
           правилам: без фантазий, с фильтром риска и понятным итогом.
         </p>
+        <div class="theme-toggle">
+          <button id="themeToggle" type="button" class="btn-secondary">Тёмная тема</button>
+          <span class="theme-text">Переключить оформление</span>
+        </div>
+
         <a class="cta" href="#analyzer">Начать анализ</a>
       </div>
     </header>
@@ -133,5 +209,28 @@
     </footer>
 
     <script src="./script.js"></script>
+    <script>
+      (function () {
+        const storageKey = "mmvb_theme_v1";
+        const toggle = document.getElementById("themeToggle");
+        if (!toggle) return;
+
+        const applyTheme = (theme) => {
+          const isLight = theme === "light";
+          document.body.classList.toggle("theme-light", isLight);
+          toggle.textContent = isLight ? "Светлая тема" : "Тёмная тема";
+        };
+
+        const saved = localStorage.getItem(storageKey);
+        const initialTheme = saved || (window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+        applyTheme(initialTheme);
+
+        toggle.addEventListener("click", () => {
+          const next = document.body.classList.contains("theme-light") ? "dark" : "light";
+          localStorage.setItem(storageKey, next);
+          applyTheme(next);
+        });
+      })();
+    </script>
   </body>
 </html>
